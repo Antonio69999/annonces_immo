@@ -5,10 +5,18 @@ const annonceSchema = new mongoose.Schema({
   titre: String,
   prix: Number,
   description: String,
-  localisation: String,
+  localisation: {
+    ville: String,
+    codePostal: String,
+  },
+  caracteristiques: {
+    chambre: Number,
+    salleDeBain: Number,
+    balcon: Boolean,
+    jardin: Boolean,
+    parking: Boolean,
+  },
   date: { type: Date, default: Date.now },
-  jardin: Boolean,
-  
 });
 
 const Annonce = mongoose.model("Annonce", annonceSchema);
