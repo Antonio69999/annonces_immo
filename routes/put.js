@@ -6,12 +6,13 @@ const mongoose = require("mongoose");
 router.put("/:id", async (request, response) => {
   const id = request.params.id;
   const newData = request.body;
-  if (!mongoose.Types.ObjectId.isValid(request.params.id)) {
-    return response
-      .status(400)
-      .json({ message: "Le format ID n'est pas celui utlisé par Mongoose" });
-  }
+
   try {
+    if (!mongoose.Types.ObjectId.isValid(request.params.id)) {
+      return response
+        .status(400)
+        .json({ message: "Le format ID n'est pas celui utlisé par Mongoose" });
+    }
     const updatedAnnonce = await Annonce.findByIdAndUpdate(id, newData, {
       new: true,
     });

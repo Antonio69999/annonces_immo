@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: ".env.local" });
 const mongoose = require("mongoose");
 
 const connectionString = process.env.DB_STRING;
