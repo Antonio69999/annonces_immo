@@ -25,6 +25,7 @@ app.get("/", (request, response) => {
 app.use("/annonces", require("./routes/annonces"));
 app.use("/post", require("./routes/post"));
 app.use("/put", require("./routes/put"));
+app.use("/delete", require("./routes/delete"));
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
