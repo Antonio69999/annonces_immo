@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Annonce = require("../models/Annonces");
 
-
 router.post("/", async (request, response) => {
   const annonce = new Annonce({
     titre: request.body.titre,
@@ -12,12 +11,12 @@ router.post("/", async (request, response) => {
       ville: request.body.localisation.ville,
       codePostal: request.body.localisation.codePostal,
     },
-    caracteristiques: {
-      chambre: request.body.caracteristiques.chambre,
-      salleDeBain: request.body.caracteristiques.salleDeBain,
-      balcon: request.body.caracteristiques.balcon,
-      jardin: request.body.caracteristiques.jardin,
-      parking: request.body.caracteristiques.parking,
+    caractéristiques: {
+      chambre: request.body.caractéristiques.chambre,
+      salleDeBain: request.body.caractéristiques.salleDeBain,
+      balcon: request.body.caractéristiques.balcon,
+      jardin: request.body.caractéristiques.jardin,
+      parking: request.body.caractéristiques.parking,
     },
   });
   try {

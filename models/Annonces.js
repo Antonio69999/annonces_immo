@@ -9,7 +9,7 @@ const annonceSchema = new mongoose.Schema({
     ville: String,
     codePostal: String,
   },
-  caracteristiques: {
+  caractéristiques: {
     chambre: Number,
     salleDeBain: Number,
     balcon: Boolean,

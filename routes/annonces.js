@@ -12,7 +12,7 @@ router.get("/", async (request, response) => {
       ville: "Lyon",
       codePostal: "69000",
     },
-    caracteristiques: {
+    caractéristiques: {
       chambre: 2,
       salleDeBain: 1,
       balcon: true,
@@ -29,7 +29,7 @@ router.get("/", async (request, response) => {
       ville: "Paris",
       codePostal: "75000",
     },
-    caracteristiques: {
+    caractéristiques: {
       chambre: 3,
       salleDeBain: 2,
       balcon: false,
