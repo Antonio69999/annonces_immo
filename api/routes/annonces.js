@@ -2,6 +2,17 @@ const express = require("express");
 const router = express.Router();
 const Annonce = require("../models/Annonces");
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const expressJwt = require("express-jwt");
+
+require("dotenv").config();
+const secret = process.env.JWT_SECRET;
+
+const authenticateJWT = expressJwt({
+  secret: secret,
+  algorithms: ["HS256"],
+  userProperty: "auth",
+});
 
 router.get("/", async (request, response) => {
   try {
@@ -12,7 +23,7 @@ router.get("/", async (request, response) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", authenticateJWT, async (req, res) => {
   try {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       return res
