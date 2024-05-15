@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   ActivityIndicator,
   StyleSheet,
   FlatList,
   Image,
 } from "react-native";
 import { fetchData } from "../../../api.js";
+import Heading from "../../Components/Heading.jsx";
 
 const Slider = () => {
   const [data, setData] = useState(null);
@@ -37,7 +37,7 @@ const Slider = () => {
 
   return (
     <View>
-      <Text style={styles.heading}>Annonces Pour Vous</Text>
+      <Heading text={"Annonces Pour Vous"} />
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -52,11 +52,6 @@ const Slider = () => {
 export default Slider;
 
 const styles = StyleSheet.create({
-  heading: {
-    fontSize: 20,
-    fontFamily: "NotoSansMedium",
-    marginBottom: 10,
-  },
   sliderImages: {
     width: 270,
     height: 155,
