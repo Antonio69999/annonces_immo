@@ -17,8 +17,16 @@ const Header = () => {
             style={styles.userImage}
           ></Image>
           <View>
-            <Text style={{ color: Colors.WHITE }}>Welcome</Text>
-            <Text style={{ color: Colors.WHITE, fontSize: 20 }}>
+            <Text style={{ color: Colors.WHITE, fontFamily: "NotoSansMedium" }}>
+              Welcome
+            </Text>
+            <Text
+              style={{
+                color: Colors.WHITE,
+                fontSize: 20,
+                fontFamily: "NotoSansRegular",
+              }}
+            >
               {user?.fullName}
             </Text>
           </View>
@@ -85,5 +93,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     marginBottom: 10,
+    fontFamily: "NotoSansRegular",
   },
 });
