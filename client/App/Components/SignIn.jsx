@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import Login from "../Screens/LoginScreen/Login.jsx";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
+import { NavigationContainer } from "@react-navigation/native";
+import TabNaviagtion from "../Navigations/TabNaviagtion.jsx";
 
 const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -28,7 +30,9 @@ const SignIn = () => {
       <View style={styles.container}>
         {/* SignIn Component */}
         <SignedIn>
-          <Text>You are Signed in</Text>
+          <NavigationContainer>
+            <TabNaviagtion></TabNaviagtion>
+          </NavigationContainer>
         </SignedIn>
 
         {/* SignOut Component */}
@@ -43,4 +47,10 @@ const SignIn = () => {
 
 export default SignIn;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingTop: 20,
+  },
+});
