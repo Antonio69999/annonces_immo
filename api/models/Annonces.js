@@ -17,6 +17,7 @@ const annonceSchema = new mongoose.Schema({
     parking: Boolean,
   },
   date: { type: Date, default: Date.now },
+  images: [String],
 });
 
 const Annonce = mongoose.model("Annonce", annonceSchema);

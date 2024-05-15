@@ -18,7 +18,7 @@ const Header = () => {
           ></Image>
           <View>
             <Text style={{ color: Colors.WHITE, fontFamily: "NotoSansMedium" }}>
-              Welcome
+              Bienvenu
             </Text>
             <Text
               style={{
@@ -35,7 +35,10 @@ const Header = () => {
       </View>
       {/* Search Bar Section */}
       <View style={styles.searchBarContainer}>
-        <TextInput placeholder="Search" style={styles.textInput}></TextInput>
+        <TextInput
+          placeholder="Chercher..."
+          style={styles.textInput}
+        ></TextInput>
         <Feather
           name="search"
           size={24}

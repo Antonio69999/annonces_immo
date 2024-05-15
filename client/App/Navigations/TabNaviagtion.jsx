@@ -25,7 +25,7 @@ const TabNaviagtion = () => {
         options={{
           tabBarLabel: ({ color }) => (
             <Text style={{ color: color, fontSize: 12, marginTop: -7 }}>
-              Home
+              Menu
             </Text>
           ),
           tabBarIcon: ({ color, size }) => (
@@ -53,7 +53,7 @@ const TabNaviagtion = () => {
         options={{
           tabBarLabel: ({ color }) => (
             <Text style={{ color: color, fontSize: 12, marginTop: -7 }}>
-              Favourite
+              Favories
             </Text>
           ),
           tabBarIcon: ({ color, size }) => (
