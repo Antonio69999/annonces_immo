@@ -2,6 +2,7 @@ import { View } from "react-native";
 import React from "react";
 import Header from "./Header";
 import Slider from "./Slider";
+import Categories from "./Categories";
 
 const HomeScreen = () => {
   return (
@@ -9,6 +10,7 @@ const HomeScreen = () => {
       <Header></Header>
       <View style={{ padding: 20 }}>
         <Slider />
+        <Categories></Categories>
       </View>
     </View>
   );

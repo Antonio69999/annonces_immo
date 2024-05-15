@@ -7,6 +7,7 @@ router.post("/", async (request, response) => {
     titre: request.body.titre,
     prix: request.body.prix,
     description: request.body.description,
+    category: request.body.category,
     images: request.body.images,
     localisation: {
       ville: request.body.localisation.ville,

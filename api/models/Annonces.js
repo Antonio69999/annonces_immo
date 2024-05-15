@@ -5,6 +5,11 @@ const annonceSchema = new mongoose.Schema({
   titre: String,
   prix: Number,
   description: String,
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+    required: true,
+  },
   localisation: {
     ville: String,
     codePostal: String,

@@ -5,7 +5,6 @@ const PORT = 3000;
 
 connectToDB();
 
-
 app.use(express.json()); // Pour le support des JSON dans le corps (body) des requêtes
 app.use(express.urlencoded({ extended: true }));
 
@@ -14,7 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 // });
 
 app.use("/annonces", require("./routes/annonces"));
+app.use("/categories", require("./routes/categories"));
 app.use("/post", require("./routes/post"));
+app.use("/postCategories", require("./routes/postCategories"));
 app.use("/put", require("./routes/put"));
 app.use("/delete", require("./routes/delete"));
 
