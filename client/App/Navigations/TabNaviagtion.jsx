@@ -3,18 +3,22 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AnnoncesScreen from "../Screens/AnnoncesScreen/AnnoncesScreen";
 import FavouriteScreen from "../Screens/FavouriteScreen/FavouriteScreen";
 import AgentScreen from "../Screens/AgentScreen/AgentScreen";
-import SearchScreen from "../Screens/SearchScreen/SearchScreen";
 import HomeScreen from "../Screens/HomeScreen/HomeScreen";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-import { Fontisto } from "@expo/vector-icons";
 import { Foundation } from "@expo/vector-icons";
+import Colors from "../Utils/Colors";
 
 const Tab = createBottomTabNavigator();
 
 const TabNaviagtion = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: Colors.PRIMARY,
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -53,7 +57,7 @@ const TabNaviagtion = () => {
             </Text>
           ),
           tabBarIcon: ({ color, size }) => (
-            <Fontisto name="favorite" size={size} color={color} />
+            <Feather name="bookmark" size={size} color={color} />
           ),
         }}
       />
@@ -68,20 +72,6 @@ const TabNaviagtion = () => {
           ),
           tabBarIcon: ({ color, size }) => (
             <Foundation name="torso-business" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Search"
-        component={SearchScreen}
-        options={{
-          tabBarLabel: ({ color }) => (
-            <Text style={{ color: color, fontSize: 12, marginTop: -7 }}>
-              Home
-            </Text>
-          ),
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="search" size={size} color={color} />
           ),
         }}
       />
