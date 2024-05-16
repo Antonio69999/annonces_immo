@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./Header";
 import Slider from "./Slider";
 import Categories from "./Categories";
+import EstateList from "./EstateList";
 
 const HomeScreen = () => {
   return (
@@ -11,6 +12,7 @@ const HomeScreen = () => {
       <View style={{ padding: 20 }}>
         <Slider />
         <Categories></Categories>
+        <EstateList></EstateList>
       </View>
     </View>
   );
