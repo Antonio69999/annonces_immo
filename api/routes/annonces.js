@@ -22,6 +22,30 @@ router.get("/", async (request, response) => {
   }
 });
 
+router.get("/category/:categoryId", async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.categoryId)) {
+      return res
+        .status(400)
+        .json({ message: "Le format ID n'est pas celui utlisé par Mongoose" });
+    }
+    const annonces = await Annonce.find({
+      category: req.params.categoryId,
+    }).populate("category");
+    if (!annonces) {
+      return res
+        .status(404)
+        .json({
+          message:
+            "Il n'y a pas d'annonces correspondant à cet id de catégorie",
+        });
+    }
+    res.json(annonces);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {

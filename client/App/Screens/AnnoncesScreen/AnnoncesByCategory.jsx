@@ -18,7 +18,7 @@ const AnnoncesByCategory = () => {
   const navigation = useNavigation();
 
   const getData = async (categoryId) => {
-    const response = await fetchData(`annonces?category=${categoryId}`);
+    const response = await fetchData(`annonces/category/${categoryId}`);
     setData(response);
   };
 
@@ -53,7 +53,7 @@ const AnnoncesByCategory = () => {
       <FlatList
         data={data}
         keyExtractor={(item) => item._id}
-        renderItem={({ item }) => <AnnoncesListItem annonces={item}/>}
+        renderItem={({ item }) => <AnnoncesListItem annonces={item} />}
       />
     </View>
   );
