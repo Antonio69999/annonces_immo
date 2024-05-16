@@ -10,6 +10,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { fetchData } from "../../../api.js";
 import AnnoncesListItem from "./AnnoncesListItem.jsx";
+import Colors from "../../Utils/Colors.js";
 
 const AnnoncesByCategory = () => {
   const [data, setData] = useState(null);
@@ -50,11 +51,27 @@ const AnnoncesByCategory = () => {
           {param.category.name}
         </Text>
       </TouchableOpacity>
-      <FlatList
-        data={data}
-        keyExtractor={(item) => item._id}
-        renderItem={({ item }) => <AnnoncesListItem annonces={item} />}
-      />
+      {data?.length > 0 ? (
+        <FlatList
+          data={data}
+          style={{ marginTop: 15 }}
+          keyExtractor={(item) => item._id}
+          renderItem={({ item }) => <AnnoncesListItem annonces={item} />}
+        />
+      ) : (
+        <Text
+          style={{
+            fontFamily: "NotoSansMedium",
+            fontSize: 20,
+            textAlign: "center",
+            marginTop: "20%",
+            color: Colors.GRAY,
+          }}
+        >
+          {" "}
+          Il n'y a pas d'annonces pour le moment
+        </Text>
+      )}
     </View>
   );
 };

@@ -4,6 +4,6 @@ export default {
   PRIMARY_LIGHT: "#F8EDEB",
   WHITE: "#ffffff",
   LIGHT_GRAY: "#ededed",
+  GRAY: "#808080",
   DARK_PURPLE: "#291528",
-  GOLDEN: "#BF8B2D",
 };
