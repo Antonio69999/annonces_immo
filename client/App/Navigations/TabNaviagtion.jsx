@@ -3,11 +3,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AnnoncesScreen from "../Screens/AnnoncesScreen/AnnoncesScreen";
 import FavouriteScreen from "../Screens/FavouriteScreen/FavouriteScreen";
 import AgentScreen from "../Screens/AgentScreen/AgentScreen";
-import HomeScreen from "../Screens/HomeScreen/HomeScreen";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Foundation } from "@expo/vector-icons";
 import Colors from "../Utils/Colors";
+import HomeNavigation from "./HomeNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,7 +21,7 @@ const TabNaviagtion = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeNavigation}
         options={{
           tabBarLabel: ({ color }) => (
             <Text style={{ color: color, fontSize: 12, marginTop: -7 }}>

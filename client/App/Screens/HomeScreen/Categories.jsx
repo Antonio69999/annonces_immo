@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { fetchData } from "../../../api.js";
 import Heading from "../../Components/Heading.jsx";
-import { Colors } from "../../Utils/Colors.js";
+import { useNavigation } from "@react-navigation/native";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -26,7 +34,12 @@ const Categories = () => {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) =>
           index <= 3 && (
-            <View style={styles.container}>
+            <TouchableOpacity
+              style={styles.container}
+              onPress={() =>
+                navigation.push("annoncesList", { category: item })
+              }
+            >
               <View style={styles.logoContainer}>
                 <Image source={{ uri: item.logo }} style={styles.logo} />
               </View>
@@ -39,7 +52,7 @@ const Categories = () => {
               >
                 {item.name}
               </Text>
-            </View>
+            </TouchableOpacity>
           )
         }
       />
