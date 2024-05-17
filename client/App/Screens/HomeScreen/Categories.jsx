@@ -48,6 +48,7 @@ const Categories = () => {
                   fontFamily: "NotoSansMedium",
                   marginTop: 5,
                   fontSize: 13,
+                  textTransform: "capitalize",
                 }}
               >
                 {item.name}

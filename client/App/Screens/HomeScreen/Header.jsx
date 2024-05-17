@@ -3,6 +3,7 @@ import React from "react";
 import { useUser } from "@clerk/clerk-expo";
 import Colors from "../../Utils/Colors";
 import { Feather } from "@expo/vector-icons";
+import Logout from "../../Components/Logout.jsx";
 
 const Header = () => {
   const { user, isLoading } = useUser();
@@ -18,7 +19,7 @@ const Header = () => {
           ></Image>
           <View>
             <Text style={{ color: Colors.WHITE, fontFamily: "NotoSansMedium" }}>
-              Bienvenu
+              Bienvenue
             </Text>
             <Text
               style={{
@@ -31,7 +32,7 @@ const Header = () => {
             </Text>
           </View>
         </View>
-        <Feather name="bookmark" size={24} color="white" />
+        <Logout></Logout>
       </View>
       {/* Search Bar Section */}
       <View style={styles.searchBarContainer}>
