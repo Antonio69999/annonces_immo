@@ -1,8 +1,16 @@
 const API_URL = "http://192.168.1.175:3000";
 
-export const fetchData = async (endpoint) => {
+export const fetchData = async (endpoint, options = {}) => {
   try {
-    const response = await fetch(`${API_URL}/${endpoint}`);
+    let url = `${API_URL}/${endpoint}`;
+    const params = new URLSearchParams({
+      ...(options.sort && { sort: JSON.stringify(options.sort) }),
+      ...(options.limit && { limit: options.limit }),
+    });
+    if (params.toString()) {
+      url += `?${params.toString()}`;
+    }
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

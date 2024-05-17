@@ -1,14 +1,19 @@
-import { StyleSheet, Image, View, Text } from "react-native";
+import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import Colors from "../../Utils/Colors.js";
 import { EvilIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const AnnoncesListItem = ({ annonces }) => {
   const imageUrl = annonces.images && annonces.images[0];
+  const navigation = useNavigation();
   const formattedPrice =
     new Intl.NumberFormat("fr-FR").format(annonces.prix) + " €";
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.push("annoncesDetail", { annonces: annonces })}
+    >
       {imageUrl && <Image source={{ uri: imageUrl }} style={styles.image} />}
       <View style={styles.subContainer}>
         <Text style={{ fontFamily: "NotoSansMedium", fontSize: 18 }}>
@@ -39,7 +44,7 @@ const AnnoncesListItem = ({ annonces }) => {
           {annonces.localisation.ville}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
