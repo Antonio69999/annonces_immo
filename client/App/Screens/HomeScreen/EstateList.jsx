@@ -5,15 +5,18 @@ import {
   FlatList,
   Image,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import Heading from "../../Components/Heading.jsx";
 import { fetchData } from "../../../api.js";
 import { useState, useEffect } from "react";
 import Colors from "../../Utils/Colors.js";
+import { useNavigation } from "@react-navigation/native";
 
 const EstateList = () => {
   const [data, setData] = useState(null);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const getData = async () => {
@@ -41,7 +44,10 @@ const EstateList = () => {
       new Intl.NumberFormat("fr-FR").format(item.prix) + " €";
 
     return (
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => navigation.push("annoncesDetail", { annonces: item })}
+      >
         <View style={styles.subContainer}>
           <Text style={{ fontFamily: "NotoSansMedium", fontSize: 18 }}>
             {item.titre}
@@ -62,12 +68,12 @@ const EstateList = () => {
           <Text>{item.ville}</Text>
         </View>
         <Image source={{ uri: item.images[0] }} style={styles.sliderImages} />
-      </View>
+      </TouchableOpacity>
     );
   };
 
   return (
-    <View style={{  }}>
+    <View style={{}}>
       <Heading text={"Biens immobiliés"} isViewAll={true}></Heading>
       <FlatList
         data={data}

@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const AgentScreen = () => {
+const ProfilScreen = () => {
   return (
     <View>
-      <Text>AgentScreen</Text>
+      <Text>ProfileScreen</Text>
     </View>
   );
 };
 
-export default AgentScreen;
+export default ProfilScreen;
 
 const styles = StyleSheet.create({});

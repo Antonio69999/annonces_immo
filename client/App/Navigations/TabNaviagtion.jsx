@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import AnnoncesScreen from "../Screens/AnnoncesScreen/AnnoncesScreen";
 import FavouriteScreen from "../Screens/FavouriteScreen/FavouriteScreen";
-import AgentScreen from "../Screens/AgentScreen/AgentScreen";
+import ProfilScreen from "../Screens/ProfilScreen/ProfilScreen";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Foundation } from "@expo/vector-icons";
@@ -62,12 +62,12 @@ const TabNaviagtion = () => {
         }}
       />
       <Tab.Screen
-        name="Agent"
-        component={AgentScreen}
+        name="Profil"
+        component={ProfilScreen}
         options={{
           tabBarLabel: ({ color }) => (
             <Text style={{ color: color, fontSize: 12, marginTop: -7 }}>
-              Agents
+              Profile
             </Text>
           ),
           tabBarIcon: ({ color, size }) => (

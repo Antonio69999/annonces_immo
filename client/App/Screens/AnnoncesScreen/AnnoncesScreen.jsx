@@ -76,5 +76,9 @@ export default AnnoncesScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: Colors.WHITE,
+    borderRadius: 10,
+    marginRight: 10,
+    marginBottom: 10,
   },
 });
