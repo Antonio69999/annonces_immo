@@ -1,14 +1,18 @@
 import React from "react";
 import Heading from "../../Components/Heading.jsx";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { useEffect, useState } from "react";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useState } from "react";
+import { useRoute } from "@react-navigation/native";
 import Colors from "../../Utils/Colors.js";
 
 const AnnoncesDescription = () => {
   const param = useRoute().params;
   const [isReadMore, setIsReadMore] = useState(false);
   const [annonces, setAnnonces] = useState(param?.annonces);
+
+  if (!annonces?.description) {
+    return null;
+  }
 
   return (
     <View>
